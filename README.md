@@ -1,4 +1,4 @@
-# steam-inventory
+# php-steam-inventory
 
 It is not uncommon for thousands of items to exist in a single Steam inventory, 
 and this can mean a lot of data to parse at the same time! This PHP library aims
@@ -8,6 +8,12 @@ environments.
 
 This library comes from the experience of someone who has used these 
 APIs for years. I hope this becomes useful for your PHP project.
+
+## Composer
+
+```
+composer require fisk/steam-inventory
+```
 
 ## Quick start
 
