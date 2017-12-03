@@ -43,7 +43,7 @@ class InventoryResponse implements InventoryResponseInterface {
      * @return \Generator|ItemPair[]
      */
     public function getItems(): \Generator {
-        $count = $this->getItemCount();
+        $count = $this->getPageSize();
 
         for ($i = 0; $i < $count; $i++)
             yield $this->getItem($i);
@@ -101,7 +101,7 @@ class InventoryResponse implements InventoryResponseInterface {
      * @return int
      * Return the total number of items in the inventory.
      */
-    public function getTotalInventoryItemCount(): int {
+    public function getInventorySize(): int {
         return $this->data['total_inventory_count'] ?? 0;
     }
 
@@ -109,7 +109,7 @@ class InventoryResponse implements InventoryResponseInterface {
      * @return int
      * Return the number of items on this page.
      */
-    public function getItemCount(): int {
+    public function getPageSize(): int {
         return count($this->data['assets'] ?? []);
     }
 

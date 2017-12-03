@@ -15,7 +15,7 @@ $inventory = $client->getInventory(new \SteamInventory\InventoryQuery(
  */
 $inventory->nextPage();
 
-print("{$inventory->getCurrentPage()->getItemCount()} items in inventory.\n");
+print("{$inventory->getCurrentPage()->getPageSize()} items in inventory.\n");
 
 print("First item is: {$inventory->getCurrentPage()->getItem(0)->getDescription()['name']}\n");
 print("Fifth item is: {$inventory->getCurrentPage()->getItem(4)->getDescription()['name']}\n");

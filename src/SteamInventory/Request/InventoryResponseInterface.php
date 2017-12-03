@@ -31,11 +31,11 @@ interface InventoryResponseInterface {
     /**
      * @return int
      */
-    public function getItemCount(): int;
+    public function getPageSize(): int;
 
     /**
      * @return int
      * Return the total number of items in the inventory.
      */
-    public function getTotalInventoryItemCount(): int;
+    public function getInventorySize(): int;
 }
