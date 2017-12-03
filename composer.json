@@ -1,0 +1,25 @@
+{
+  "name": "fisk/steam-inventory",
+  "type": "library",
+  "description": "The Steam inventory toolkit",
+  "license": "BSD-2-Clause",
+  "authors": [
+    {
+      "name": "fisk",
+      "email": "myself@fiskie.me",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "SteamInventory\\": "src/SteamInventory"
+    }
+  },
+  "require": {
+    "php": "^7.0",
+    "guzzlehttp/guzzle": "~6.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^6.2"
+  }
+}
