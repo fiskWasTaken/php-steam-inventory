@@ -14,8 +14,10 @@ use SteamInventory\Request\InventoryRequestInterface;
 
 interface InventoryTransportInterface {
     /**
+     * Get an accompanying response for an inventory request.
+     *
      * @param InventoryRequestInterface $request
      * @return null|InventoryResponseInterface
      */
-    public function sendRequest(InventoryRequestInterface $request);
+    public function execute(InventoryRequestInterface $request);
 }

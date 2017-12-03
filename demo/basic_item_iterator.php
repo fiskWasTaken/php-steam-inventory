@@ -15,19 +15,27 @@ $client = new \SteamInventory\Client(new \SteamInventory\Configuration([
     'page_size' => 3
 ]));
 
-$response = $client->getInventory(new \SteamInventory\InventoryQuery(
+$inventory = $client->getInventory(new \SteamInventory\InventoryQuery(
     "76561198012598620",
     440
 ));
 
 $i = 0;
 
-foreach ($response->getItems() as $item) {
+foreach ($inventory->getItems() as $item) {
     print_r(
         sprintf(
-            "This asset's ID is: %d. This page's last asset ID is: %d.\n",
+            "Asset #%d: The last known asset ID is: %d.\n",
             $item->getAsset()['assetid'],
-            $response->getCurrentPage()->getLastAssetId()
+            $inventory->getCurrentPage()->getLastAssetId()
+        )
+    );
+
+    print_r(
+        sprintf(
+            "Asset #%d: This item's name is \"%s\".\n",
+            $item->getAsset()['assetid'],
+            $item->getDescription()['name']
         )
     );
 

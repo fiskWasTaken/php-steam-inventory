@@ -2,7 +2,7 @@
 
 namespace SteamInventory;
 
-use SteamInventory\Transport\DefaultInventoryTransport;
+use SteamInventory\Transport\GuzzleInventoryTransport;
 use SteamInventory\Transport\InventoryTransportInterface;
 
 class Client {
@@ -19,7 +19,7 @@ class Client {
         $this->configuration = $configuration;
 
         if (!$transport)
-            $transport = new DefaultInventoryTransport();
+            $transport = new GuzzleInventoryTransport();
 
         $this->transport = $transport;
     }

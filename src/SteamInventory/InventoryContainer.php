@@ -56,7 +56,7 @@ class InventoryContainer {
         }
 
         $req = $this->buildUriRequest($lastAssetId);
-        return $transport->sendRequest($req);
+        return $transport->execute($req);
     }
 
     private function buildUriRequest($lastAssetId = null) {
