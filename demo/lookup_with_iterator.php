@@ -39,7 +39,7 @@ foreach ($inventory->getItems() as $item) {
         )
     );
 
-    // break after a few items are fetched
+    // break after a few items are fetched for demonstration purposes
     if ($i++ == 10)
         break;
 }

@@ -20,12 +20,29 @@ class InventoryContainer {
         $this->query = $query;
     }
 
+    /**
+     * Iterator helper method. getCurrentPage will return the current page
+     * during item iteration.
+     *
+     * @return InventoryResponseInterface
+     */
     public function getCurrentPage() {
         return $this->currentPage;
     }
 
     /**
-     * Will advance the current page forward.
+     * Will return the first page for the inventory. Should be used if you
+     * do not plan to use the paginated iterator.
+     *
+     * @return null|InventoryResponseInterface
+     */
+    public function getFirstPage() {
+        $req = $this->buildUriRequest(null);
+        return $this->client->getTransport()->execute($req);
+    }
+
+    /**
+     * Will advance the page cursor forward.
      */
     public function nextPage() {
         $this->currentPage = $this->getNextPage();
