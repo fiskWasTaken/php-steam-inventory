@@ -1,16 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: fisk
- * Date: 03/12/17
- * Time: 09:34
- */
 
 namespace SteamInventory\Transport;
 
 
-use SteamInventory\Request\InventoryResponseInterface;
 use SteamInventory\Request\InventoryRequestInterface;
+use SteamInventory\Request\InventoryResponseInterface;
 
 interface InventoryTransportInterface {
     /**

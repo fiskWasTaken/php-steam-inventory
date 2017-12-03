@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: fisk
- * Date: 03/12/17
- * Time: 09:56
- */
 
 namespace SteamInventory\Request;
 
@@ -24,6 +18,7 @@ interface InventoryResponseInterface {
     public function getItem(int $index);
 
     /**
+     * Return true if this inventory is private.
      * @return bool
      */
     public function isPrivate(): bool;

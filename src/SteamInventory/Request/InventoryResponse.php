@@ -25,10 +25,6 @@ class InventoryResponse implements InventoryResponseInterface {
         $this->cacheDescriptions();
     }
 
-    private function getDescriptionKey(array $desc) {
-        return $desc['classid'] . '_' . $desc['instanceid'];
-    }
-
     /**
      * Hashes the descriptions to reduce lookup time.
      */
@@ -39,6 +35,10 @@ class InventoryResponse implements InventoryResponseInterface {
         }
     }
 
+    private function getDescriptionKey(array $desc) {
+        return $desc['classid'] . '_' . $desc['instanceid'];
+    }
+
     /**
      * @return \Generator|ItemPair[]
      */
@@ -47,6 +47,14 @@ class InventoryResponse implements InventoryResponseInterface {
 
         for ($i = 0; $i < $count; $i++)
             yield $this->getItem($i);
+    }
+
+    /**
+     * @return int
+     * Return the number of items on this page.
+     */
+    public function getPageSize(): int {
+        return count($this->data['assets'] ?? []);
     }
 
     /**
@@ -106,16 +114,10 @@ class InventoryResponse implements InventoryResponseInterface {
     }
 
     /**
-     * @return int
-     * Return the number of items on this page.
-     */
-    public function getPageSize(): int {
-        return count($this->data['assets'] ?? []);
-    }
-
-    /**
+     * If success is ever set, it should be 1.
+     * If not, there may be an internal error.
+     *
      * @return bool
-     * If success is 1. Probably not useful.
      */
     public function isSuccess(): bool {
         return ($this->data['success'] ?? 0) === 1;
@@ -127,5 +129,15 @@ class InventoryResponse implements InventoryResponseInterface {
      */
     public function getRwgrsn() {
         return $this->data['rwgrsn'] ?? null;
+    }
+
+    /**
+     * If success is nonexistent, there may be an internal error.
+     * Check this value to see if a string was returned.
+     *
+     * @return string|null
+     */
+    public function getError() {
+        return $this->data['error'] ?? null;
     }
 }

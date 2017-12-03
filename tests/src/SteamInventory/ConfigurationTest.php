@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: fisk
- * Date: 01/12/17
- * Time: 23:17
- */
 
 namespace SteamInventory;
 

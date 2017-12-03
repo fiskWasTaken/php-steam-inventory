@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: fisk
- * Date: 01/12/17
- * Time: 22:44
- */
 
 namespace SteamInventory;
 
@@ -21,13 +15,13 @@ class InventoryContainer {
      */
     private $currentPage;
 
-    public function getCurrentPage() {
-        return $this->currentPage;
-    }
-
     public function __construct(Client $client, InventoryQuery $query) {
         $this->client = $client;
         $this->query = $query;
+    }
+
+    public function getCurrentPage() {
+        return $this->currentPage;
     }
 
     /**

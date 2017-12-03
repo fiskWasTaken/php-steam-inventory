@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: fisk
- * Date: 03/12/17
- * Time: 10:09
- */
 
 namespace SteamInventory;
 
@@ -18,13 +12,6 @@ class ItemIterator implements \Iterator {
         $this->container = $inventoryIterator;
     }
 
-    /**
-     * @return null|ItemPair
-     */
-    public function current() {
-        return $this->container->getCurrentPage()->getItem($this->pagePos) ?? null;
-    }
-
     public function next() {
         $this->globalPos++;
         $this->pagePos++;
@@ -33,6 +20,13 @@ class ItemIterator implements \Iterator {
             $this->container->nextPage();
             $this->pagePos = 0;
         }
+    }
+
+    /**
+     * @return null|ItemPair
+     */
+    public function current() {
+        return $this->container->getCurrentPage()->getItem($this->pagePos) ?? null;
     }
 
     public function key() {

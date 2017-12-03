@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: fisk
- * Date: 01/12/17
- * Time: 22:15
- */
 
 namespace SteamInventory\Request;
 
@@ -65,4 +59,3 @@ class InventoryRequest implements InventoryRequestInterface {
         return $this->options['steamid'] ?? "";
     }
 }
-use GuzzleHttp\Psr7\Request;

@@ -4,6 +4,7 @@ namespace SteamInventory\Transport;
 
 
 use GuzzleHttp\Client;
+use GuzzleHttp\ClientInterface;
 use SteamInventory\Request\InventoryRequestInterface;
 use SteamInventory\Request\InventoryResponse;
 use SteamInventory\Request\InventoryResponseInterface;
@@ -17,9 +18,9 @@ class GuzzleInventoryTransport implements InventoryTransportInterface {
      * A custom Guzzle HTTP client may be passed. If this is done, the base_uri
      * should be set to http://steamcommunity.com (or your forward proxy).
      *
-     * @param Client $client
+     * @param ClientInterface $client
      */
-    public function __construct($client = null) {
+    public function __construct(ClientInterface $client = null) {
         if (!$client) {
             $client = new Client([
                 'base_uri' => 'http://steamcommunity.com'
