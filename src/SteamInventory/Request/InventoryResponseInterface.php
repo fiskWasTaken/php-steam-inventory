@@ -12,6 +12,11 @@ interface InventoryResponseInterface {
     public function getLastAssetId();
 
     /**
+     * @return \Generator|ItemPair[]
+     */
+    public function getItems(): \Generator;
+
+    /**
      * @param int $index
      * @return ItemPair|null
      */
