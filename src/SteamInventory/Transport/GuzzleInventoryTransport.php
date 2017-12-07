@@ -54,8 +54,14 @@ class GuzzleInventoryTransport implements InventoryTransportInterface {
 
             return new InventoryResponse($response->getBody());
         } catch (ClientException $e) {
+            $response = $e->getResponse();
             // 403 exceptions are likely to be private inventories, so capture those.
-            return new InventoryResponse($e->getResponse()->getBody());
+            if ($response->getStatusCode() == 403) {
+                return new InventoryResponse($e->getResponse()->getBody());
+            }
+
+            // Pass exception on if it's not 403
+            throw $e;
         }
     }
 }
