@@ -33,18 +33,6 @@ foreach ($inventory->getItems() as $item) {
 }
 ```
 
-### Handling private inventories
-
-Hopefully we can handle these more gracefully in the future. If you are using the default transport interface, trying to load a private inventory will throw a Guzzle `ClientException` as the status code for private inventories is 403. You can mitigate this problem by doing the following:
-
-```
-try {
-    //
-} catch (ClientException $e) {
-   $inventory = new InventoryResponse($e->getResponse()->getBody());
-}
-```
-
 ## What's inside
 
 * PHP bindings for the Steam community inventory APIs.
