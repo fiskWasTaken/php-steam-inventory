@@ -5,6 +5,7 @@ namespace SteamInventory\Transport;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Exception\ClientException;
 use SteamInventory\Request\InventoryRequestInterface;
 use SteamInventory\Request\InventoryResponse;
 use SteamInventory\Request\InventoryResponseInterface;
@@ -32,9 +33,9 @@ class GuzzleInventoryTransport implements InventoryTransportInterface {
 
     /**
      * @param InventoryRequestInterface $request
-     * @return null|InventoryResponseInterface
+     * @return InventoryResponseInterface
      */
-    public function execute(InventoryRequestInterface $request) {
+    public function execute(InventoryRequestInterface $request): InventoryResponseInterface {
         $uri = "/inventory/{$request->getSteamid()}/{$request->getAppid()}/{$request->getContextId()}";
 
         $query = [
@@ -46,14 +47,15 @@ class GuzzleInventoryTransport implements InventoryTransportInterface {
             $query['start_assetid'] = $request->getStartingAssetId();
         }
 
-        $response = $this->client->get($uri, [
-            'query' => $query
-        ]);
+        try {
+            $response = $this->client->get($uri, [
+                'query' => $query
+            ]);
 
-        if ($response->getStatusCode() == 200) {
             return new InventoryResponse($response->getBody());
+        } catch (ClientException $e) {
+            // 403 exceptions are likely to be private inventories, so capture those.
+            return new InventoryResponse($e->getResponse()->getBody());
         }
-
-        return null;
     }
 }
