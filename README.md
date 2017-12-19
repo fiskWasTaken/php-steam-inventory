@@ -1,4 +1,4 @@
-# php-steam-inventory
+# php-steam-inventory  ![Travis](https://api.travis-ci.org/fiskie/php-steam-inventory.svg?branch=master)
 
 It is not uncommon for thousands of items to exist in a single Steam inventory, 
 and this can mean a lot of data to parse at the same time! This PHP library aims
