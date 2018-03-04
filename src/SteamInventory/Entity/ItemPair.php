@@ -1,6 +1,6 @@
 <?php
 
-namespace SteamInventory;
+namespace SteamInventory\Entity;
 
 /**
  * Class ItemPair
@@ -18,18 +18,18 @@ class ItemPair {
     }
 
     /**
-     * @return array
+     * @return Asset
      * Get the asset information for this item.
      */
-    public function getAsset(): array {
-        return $this->asset;
+    public function getAsset(): Asset {
+        return new Asset($this->asset);
     }
 
     /**
-     * @return array
+     * @return Description
      * Get the associated description for this item.
      */
-    public function getDescription(): array {
-        return $this->description;
+    public function getDescription(): Description {
+        return new Description($this->description);
     }
 }

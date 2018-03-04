@@ -3,7 +3,7 @@
 namespace SteamInventory\Request;
 
 use Psr\Http\Message\StreamInterface;
-use SteamInventory\ItemPair;
+use SteamInventory\Entity\ItemPair;
 
 /**
  * Class InventoryResponse

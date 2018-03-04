@@ -3,7 +3,7 @@
 namespace SteamInventory\Request;
 
 
-use SteamInventory\ItemPair;
+use SteamInventory\Entity\ItemPair;
 
 interface InventoryResponseInterface {
     /**

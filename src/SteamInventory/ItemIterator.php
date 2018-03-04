@@ -3,6 +3,8 @@
 namespace SteamInventory;
 
 
+use SteamInventory\Entity\ItemPair;
+
 class ItemIterator implements \Iterator {
     private $globalPos = 0;
     private $pagePos = 0;
