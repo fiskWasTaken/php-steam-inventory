@@ -11,6 +11,7 @@ namespace SteamInventory\Entity;
  * @property-read int currency
  * @property-read string background_color
  * @property-read string icon_url
+ * @property-read string icon_url_large
  * @property-read int tradable
  * @property-read int marketable
  * @property-read array tags
