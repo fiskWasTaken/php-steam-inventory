@@ -11,7 +11,7 @@ class ItemPairTest extends TestCase {
      */
     private $instance;
 
-    public function setUp() {
+    public function setUp(): void {
         $this->instance = new ItemPair([
             'appid' => 1105,
             'contextid' => 2,

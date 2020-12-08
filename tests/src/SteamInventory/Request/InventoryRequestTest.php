@@ -10,7 +10,7 @@ class InventoryRequestTest extends TestCase {
      */
     private $instance;
 
-    public function setUp() {
+    public function setUp(): void {
         $this->instance = new InventoryRequest([
             'steamid' => "76561198012598620",
             'appid' => 440,

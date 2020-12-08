@@ -10,7 +10,7 @@ class InventoryQueryTest extends TestCase {
      */
     private $instance;
 
-    public function setUp() {
+    public function setUp(): void {
         $this->instance = new InventoryQuery("76561198012598620", 440);
     }
 

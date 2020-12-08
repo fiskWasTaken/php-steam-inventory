@@ -11,7 +11,7 @@ class ClientTest extends TestCase {
      */
     private $instance;
 
-    public function setUp() {
+    public function setUp(): void {
         $this->instance = new Client(
             new Configuration(['language' => 'klingon'])
         );
