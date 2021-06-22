@@ -8,11 +8,11 @@ namespace SteamInventory\Request;
  * Contains data used to build the request URI/querystring.
  *
  * @package SteamInventory
- * @property string steamid
- * @property int appid
- * @property string language
- * @property int count
- * @property int start_assetid
+ * @property string $steamid
+ * @property int $appid
+ * @property string $language
+ * @property int $count
+ * @property int $start_assetid
  */
 class InventoryRequest implements InventoryRequestInterface {
     private $options = [
